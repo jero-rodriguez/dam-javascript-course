@@ -84,24 +84,18 @@
 
     <script>
         function calcularNotaMedia() {
-            // 1. Preguntamos cuántas notas va a introducir [00:04:44]
             let numNotas = prompt("¿Cuántas notas quieres introducir?");
-            numNotas = parseInt(numNotas); // Convertimos a número
+            numNotas = parseInt(numNotas);
 
-            let suma = 0; // Acumulador donde guardaremos la suma total [00:06:08]
+            let suma = 0;
 
-            // 2. Bucle para pedir cada nota [00:05:09]
             for (let i = 1; i <= numNotas; i++) {
                 let nota = prompt("Introduce la nota número " + i + ":");
-
-                // Es vital usar parseInt para que no las pegue como texto [00:03:00]
                 suma = suma + parseInt(nota);
             }
 
-            // 3. Calculamos la media final [00:07:20]
             let mediaFinal = suma / numNotas;
 
-            // 4. Mostramos el resultado en el div
             document.getElementById("resultado").innerHTML =
                 "Tu nota media final es: " + mediaFinal.toFixed(2);
         }
