@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS y DOM: Propiedad Visibility</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 0;
+        }
+
+        .contenedor {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .campo-formulario {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        #bloqueProvincia {
+            visibility: hidden;
+            transition: visibility 0.3s;
+        }
+
+        .explicacion {
+            text-align: left;
+            background-color: #f1f3f5;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 0.95em;
+            border-left: 5px solid #007bff;
+            border-radius: 4px;
+            line-height: 1.6;
+        }
+
+        .enlace-volver {
+            display: inline-block;
+            margin-top: 25px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .enlace-volver:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <h1>Control de Visibilidad con JS</h1>
+        <p>Elige tu destino. Si seleccionas "España", aparecerá el selector de provincias.</p>
+
+        <div class="campo-formulario">
+            <label for="selectorPais">País de destino:</label>
+            <select id="selectorPais" onchange="gestionarVisibilidad()">
+                <option value="nada">-- Elija destino --</option>
+                <option value="espanya">España</option>
+                <option value="fuera">Fuera de España</option>
+            </select>
+        </div>
+
+        <div class="campo-formulario" id="bloqueProvincia">
+            <label for="selectorProvincia">Selecciona Provincia:</label>
+            <select id="selectorProvincia">
+                <option value="madrid">Madrid</option>
+                <option value="barcelona">Barcelona</option>
+                <option value="valencia">Valencia</option>
+                <option value="sevilla">Sevilla</option>
+            </select>
+        </div>
+
+        <div class="explicacion">
+            <strong>Lo que aprendemos en este vídeo:</strong><br>
+            - <b>visibility: hidden</b>: Oculta el elemento pero mantiene el espacio que ocupa en el diseño.<br>
+            - <b>visibility: visible</b>: Hace que el elemento vuelva a ser perceptible.<br>
+            - <b>onchange</b>: Evento que se dispara cuando el usuario cambia la selección de un menú desplegable.<br>
+            - <b>control.style.visibility</b>: Forma de acceder y modificar esta propiedad CSS desde JavaScript.
+        </div>
+
+        <a href="../index.html" class="enlace-volver">← Volver al Índice</a>
+    </div>
+
+    <script>
+        function gestionarVisibilidad() {
+            const pais = document.getElementById("selectorPais").value;
+            const bloqueProvincia = document.getElementById("bloqueProvincia");
+
+            if (pais === "espanya") {
+                bloqueProvincia.style.visibility = "visible";
+            } else {
+                bloqueProvincia.style.visibility = "hidden";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
