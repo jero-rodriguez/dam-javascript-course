@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Arrays y bucles for</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+            padding: 20px;
+        }
+
+        .caja-ejercicio {
+            background-color: white;
+            border: 1px solid #ccc;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .explicacion {
+            background-color: #d4edda;
+            padding: 10px;
+            border-left: 4px solid #28a745;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+
+        #resultado {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin-top: 20px;
+            border: 1px dashed #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="caja-ejercicio">
+        <h1>Arrays y bucles for</h1>
+
+        <div class="explicacion">
+            <strong>Conceptos clave del vídeo:</strong><br>
+            - <b>Arrays:</b> Variables que guardan muchos datos a la vez.<br>
+            - <b>Índices:</b> Se empieza a contar desde el 0.<br>
+            - <b>Propiedad .length:</b> Nos dice cuántos elementos hay.<br>
+            - <b>Bucle For:</b> Sirve para repetir una acción automáticamente.
+        </div>
+
+        <p>Haz clic para ver los días de la semana procesados por un bucle:</p>
+        <button onclick="mostrarDias()">Mostrar Días</button>
+
+        <div id="resultado">
+            Los días aparecerán aquí...
+        </div>
+
+        <br>
+        <a href="../index.html">← Volver al Índice</a>
+    </div>
+
+    <script>
+        function mostrarDias() {
+            let dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+            let textoHTML = "<strong>Lista de días:</strong><br>";
+
+            for (let i = 0; i < dias.length; i++) {
+                textoHTML = textoHTML + (i + 1) + ". " + dias[i] + "<br>";
+            }
+
+            document.getElementById("resultado").innerHTML = textoHTML;
+        }
+    </script>
+
+</body>
+
+</html>
