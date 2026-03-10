@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 5 - Atributos y CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contenedor {
+            background-color: white;
+            border: 1px solid #ccc;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        #miCaja {
+            width: 300px;
+            border: 1px solid blue;
+            padding: 20px;
+            margin: 20px auto;
+            background-color: white;
+            transition: all 0.5s;
+        }
+
+        button {
+            margin: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        .info {
+            background-color: #e2f3f5;
+            padding: 10px;
+            border-left: 4px solid #3d5afe;
+            text-align: left;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <h1>Atributos y Propiedades CSS</h1>
+
+        <h3>1. Cambiar Atributos de Imagen</h3>
+        <img id="miImagen" src="https://placehold.co/200" width="200" alt="Imagen de prueba">
+        <br>
+        <button onclick="cambiarAncho()">Aumentar Ancho</button>
+        <button onclick="cambiarFoto()">Cambiar Imagen</button>
+
+        <hr>
+
+        <h3>2. Cambiar Propiedades CSS</h3>
+        <div id="miCaja">
+            Esta caja cambiará de color, tamaño y fuente.
+        </div>
+        <button onclick="modificarCaja()">Modificar Estilo de la Caja</button>
+
+        <div class="info">
+            <strong>Aprendido en este vídeo:</strong><br>
+            - Cambiar <b>atributos</b> como <i>src</i> o <i>width</i> directamente [00:01:27].<br>
+            - Acceder al CSS con la propiedad <b>.style</b> [00:05:40].<br>
+            - Las propiedades con guión (background-color) se escriben en <b>camelCase</b> (backgroundColor) [00:08:35].
+        </div>
+
+        <br>
+        <a href="../index.html" style="text-decoration: none; color: #007bff;">← Volver al Índice</a>
+    </div>
+
+    <script>
+        function cambiarAncho() {
+            let img = document.getElementById("miImagen");
+            img.width = img.width + 50;
+        }
+
+        function cambiarFoto() {
+            let img = document.getElementById("miImagen");
+            img.src = "https://placehold.co/200x200/000000/FFFFFF.png";
+        }
+
+        function modificarCaja() {
+            let caja = document.getElementById("miCaja");
+            caja.style.width = "500px";
+            caja.style.backgroundColor = "lightgreen";
+            caja.style.fontSize = "25px";
+            caja.style.color = "red";
+        }
+    </script>
+
+</body>
+
+</html>
