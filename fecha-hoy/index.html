@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS y DOM: Comparar con la fecha de hoy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 0;
+        }
+
+        .contenedor {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .campo-formulario {
+            margin: 25px 0;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .boton-verde {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .boton-verde:hover {
+            background-color: #218838;
+        }
+
+        .mensaje-error {
+            color: #dc3545;
+            background-color: #f8d7da;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+            font-weight: bold;
+        }
+
+        .explicacion {
+            text-align: left;
+            background-color: #f1f3f5;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 0.95em;
+            border-left: 5px solid #007bff;
+            border-radius: 4px;
+            line-height: 1.6;
+        }
+
+        .enlace-volver {
+            display: inline-block;
+            margin-top: 25px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .enlace-volver:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <h1 id="tituloPrincipal">Validación: Fecha de Hoy</h1>
+        <p>Selecciona una fecha para comprobar si es válida (no anterior a hoy).</p>
+
+        <div class="campo-formulario">
+            <label for="fechaSeleccionada">Elige una fecha:</label>
+            <input type="date" id="fechaSeleccionada">
+            <div id="errorVisual" class="mensaje-error">
+                La fecha no puede ser anterior al día de hoy.
+            </div>
+        </div>
+
+        <button class="boton-verde" onclick="validarFecha()">Verificar Fecha</button>
+
+        <div class="explicacion">
+            <strong>Lo que aprendemos en este vídeo:</strong><br>
+            - <b>new Date()</b>: Obtiene la fecha y hora completa del sistema actual.<br>
+            - <b>toISOString()</b>: Convierte el objeto fecha a una cadena de texto estándar ISO.<br>
+            - <b>slice(0, 10)</b>: Recorta los primeros 10 caracteres para obtener el formato AAAA-MM-DD.<br>
+            - <b>Comparación de Strings</b>: Al usar el formato año-mes-día, podemos comparar fechas usando operadores
+            matemáticos.
+        </div>
+
+        <a href="../index.html" class="enlace-volver">← Volver al Índice</a>
+    </div>
+
+    <script>
+        function validarFecha() {
+            const selectorFecha = document.getElementById("fechaSeleccionada");
+            const capaError = document.getElementById("errorVisual");
+            let fechaUsuario = selectorFecha.value;
+
+            if (fechaUsuario === "") {
+                alert("Por favor, selecciona una fecha primero.");
+                return;
+            }
+
+            let fechaSistema = new Date();
+            let hoyTexto = fechaSistema.toISOString().slice(0, 10);
+
+            if (fechaUsuario < hoyTexto) {
+                capaError.style.display = "block";
+            } else {
+                capaError.style.display = "none";
+                alert("¡Excelente! La fecha " + fechaUsuario + " es válida.");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
