@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS y DOM: Evento Onblur</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+            padding: 40px 20px;
+            text-align: center;
+            margin: 0;
+        }
+
+        .contenedor {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .campo-formulario {
+            margin: 25px 0;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .explicacion {
+            text-align: left;
+            background-color: #f1f3f5;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 0.95em;
+            border-left: 5px solid #007bff;
+            border-radius: 4px;
+            line-height: 1.6;
+        }
+
+        .enlace-volver {
+            display: inline-block;
+            margin-top: 25px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .enlace-volver:hover {
+            text-decoration: underline;
+        }
+
+        .nota-informativa {
+            color: #28a745;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <h1>Transformación a Mayúsculas</h1>
+        <p>Escribe tu nombre en minúsculas y pulsa fuera del cuadro o usa el tabulador.</p>
+
+        <div class="campo-formulario">
+            <label for="campoNombre">Nombre completo:</label>
+            <input type="text" id="campoNombre" onblur="convertirMayusculas()" placeholder="Ej: juan pérez">
+            <p class="nota-informativa">El cambio ocurre al perder el foco (onblur).</p>
+        </div>
+
+        <div class="explicacion">
+            <strong>Lo que aprendemos en este vídeo:</strong><br>
+            - <b>onblur</b>: Evento que se ejecuta cuando un elemento deja de tener el foco del usuario.<br>
+            - <b>toLocaleUpperCase()</b>: Método de cadena que convierte el texto a mayúsculas respetando la
+            configuración regional (acentos, letra ñ, etc.).<br>
+            - <b>Manipulación de valor</b>: Cómo leer el contenido de un input (`.value`) y reescribirlo modificado.<br>
+            - <b>Interactividad</b>: Mejorar la experiencia del usuario automatizando el formato de los datos.
+        </div>
+
+        <a href="../index.html" class="enlace-volver">← Volver al Índice</a>
+    </div>
+
+    <script>
+        function convertirMayusculas() {
+            const entradaNombre = document.getElementById("campoNombre");
+
+            let textoActual = entradaNombre.value;
+            let textoMayusculas = textoActual.toLocaleUpperCase();
+
+            entradaNombre.value = textoMayusculas;
+        }
+    </script>
+
+</body>
+
+</html>
