@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript y el DOM: innerHTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            padding: 20px;
+        }
+
+        .contenedor {
+            background-color: white;
+            border: 1px solid #ddd;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        #miCaja {
+            border: 2px solid blue;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #e7f3ff;
+            min-height: 50px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .nota {
+            font-size: 0.85em;
+            color: #666;
+            background: #fff3cd;
+            padding: 10px;
+            border-left: 5px solid #ffc107;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <h1 id="tituloPrincipal">JavaScript y el DOM: innerHTML</h1>
+
+        <div id="miCaja">
+            Aquí aparecerá el contenido que cambiemos con JavaScript.
+        </div>
+
+        <button onclick="cambiarContenido()">Cambiar Título y Caja</button>
+
+        <div class="nota">
+            <strong>Aprendido en este vídeo:</strong><br>
+            - Qué es el <b>DOM</b> (elementos de un documento del navegador).<br>
+            - <b>document.getElementById()</b> para seleccionar un elemento del DOM.<br>
+            - Propiedad <b>innerHTML</b> para cambiar el texto o el HTML interno.
+        </div>
+
+        <br>
+        <a href="../index.html" style="text-decoration: none; color: #007bff;">← Volver al Índice</a>
+    </div>
+
+    <script>
+        function cambiarContenido() {
+            let titulo = document.getElementById("tituloPrincipal");
+            titulo.innerHTML = "¡Título Cambiado!";
+
+            let caja = document.getElementById("miCaja");
+            caja.innerHTML = "Has pulsado el botón y JavaScript ha modificado el DOM.";
+
+            caja.innerHTML += "<br><strong>¡Ahora con negrita!</strong>";
+        }
+    </script>
+
+</body>
+
+</html>
