@@ -4,62 +4,139 @@
 <head>
     <meta charset="UTF-8">
     <title>Arrays y Bucles FOR - JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            padding: 20px;
+        }
+
+        .contenedor {
+            background-color: white;
+            border: 1px solid #ddd;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        #miCaja {
+            border: 2px solid blue;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #e7f3ff;
+            min-height: 50px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 10px auto;
+            width: 80%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .nota {
+            font-size: 0.85em;
+            color: #666;
+            background: #fff3cd;
+            padding: 10px;
+            border-left: 5px solid #ffc107;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Ejercicios del Video: Arrays y Bucles</h1>
+    <div class="contenedor">
+        <h1 id="tituloPrincipal">Arrays y Bucles FOR</h1>
 
-    <button onclick="verAlineacion()">Ver Jugador por Posición</button>
-    <button onclick="calcularFactorial()">Calcular Factorial</button>
-    <button onclick="tablaMultiplicar()">Generar Tabla Multiplicar</button>
-    <button onclick="imprimeAlineacion()">Imprimir Alineación Completa</button>
+        <div id="miCaja">
+            Haz clic en los botones para ejecutar los ejercicios de lógica.
+        </div>
+
+        <button onclick="verAlineacion()">Ver Jugador por Posición</button>
+        <button onclick="calcularFactorial()">Calcular Factorial</button>
+        <button onclick="tablaMultiplicar()">Generar Tabla Multiplicar</button>
+        <button onclick="imprimeAlineacion()">Imprimir Alineación Completa</button>
+
+        <div class="nota">
+            <strong>Conceptos practicados:</strong><br>
+            - Declaración y acceso a elementos de un <b>Array</b>.<br>
+            - Uso de <b>bucles FOR</b> para recorrer estructuras de datos.<br>
+            - Captura de datos con <b>prompt()</b> y salida en el DOM.
+        </div>
+
+        <br>
+        <a href="../index.html" style="text-decoration: none; color: #007bff;">← Volver al Índice</a>
+    </div>
 
     <script>
+        const caja = document.getElementById("miCaja");
+
         function verAlineacion() {
             let alineacion = ["Courtois", "Carvajal", "Ramos", "Benzema"];
             let posicion = prompt("Dime una posición (0 a 3):");
 
-            if (alineacion[posicion] !== undefined) {
-                alert("En la posición " + posicion + " está: " + alineacion[posicion]);
+            if (posicion !== null && alineacion[posicion] !== undefined) {
+                caja.innerHTML = `En la posición <strong>${posicion}</strong> está: <strong>${alineacion[posicion]}</strong>`;
             } else {
-                alert("Esa posición no existe en el equipo.");
+                caja.innerHTML = "<span style='color:red;'>Esa posición no existe en el equipo.</span>";
             }
         }
 
         function calcularFactorial() {
             let numero = parseInt(prompt("Dime un número para calcular su factorial:"));
-            let factorial = 1;
+            if (isNaN(numero)) return;
 
+            let factorial = 1;
             for (let i = 1; i <= numero; i++) {
                 factorial = factorial * i;
             }
-            alert("El factorial de " + numero + " es: " + factorial);
+            caja.innerHTML = `El factorial de <strong>${numero}</strong> es: <strong>${factorial}</strong>`;
         }
 
         function tablaMultiplicar() {
             let num = parseInt(prompt("¿De qué número quieres la tabla?"));
+            if (isNaN(num)) return;
 
-            document.write("<h1>Tabla del " + num + "</h1>");
-            document.write("<table border='1'>");
+            let tablaHTML = `<h3>Tabla del ${num}</h3><table border='1' style='margin:auto; border-collapse: collapse; width:50%;'>`;
 
             for (let i = 1; i <= 10; i++) {
-                document.write("<tr>");
-                document.write("<td>" + num + " x " + i + "</td>");
-                document.write("<td>" + (num * i) + "</td>");
-                document.write("</tr>");
+                tablaHTML += `<tr>
+                                <td style='padding:5px;'>${num} x ${i}</td>
+                                <td style='padding:5px;'><strong>${num * i}</strong></td>
+                              </tr>`;
             }
-            document.write("</table>");
+            tablaHTML += "</table>";
+            caja.innerHTML = tablaHTML;
         }
 
         function imprimeAlineacion() {
             let alineacion = ["Courtois", "Carvajal", "Ramos", "Benzema", "Modric", "Kroos"];
-
-            document.write("<h2>Alineación Completa:</h2>");
+            let listaHTML = "<h3>Alineación Completa:</h3><ul style='text-align:left; display:inline-block;'>";
 
             for (let i = 0; i < alineacion.length; i++) {
-                document.write("Jugador " + i + ": " + alineacion[i] + "<br>");
+                listaHTML += `<li>Jugador ${i}: <strong>${alineacion[i]}</strong></li>`;
             }
+            listaHTML += "</ul>";
+            caja.innerHTML = listaHTML;
         }
     </script>
 

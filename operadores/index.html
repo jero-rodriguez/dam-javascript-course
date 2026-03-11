@@ -78,7 +78,6 @@
     </div>
 
     <script>
-        // --- EJEMPLO 1: Múltiplo de 7 ---
         function esMultiploDe7() {
             let numero = prompt("Dime un número para ver si es múltiplo de 7:");
             if (numero % 7 == 0) {
@@ -88,7 +87,6 @@
             }
         }
 
-        // --- EJEMPLO 2: Suma con parseInt ---
         function sumarDosNumeros() {
             let n1 = prompt("Dime el primer número:");
             let n2 = prompt("Dime el segundo número:");
@@ -98,10 +96,9 @@
             alert("La suma real es: " + resultado);
         }
 
-        // --- EJEMPLO 3: Funciones con parámetros y return ---
         function pedirNumeroParImpar() {
             let num = prompt("Dime un número:");
-            let resultado = calcularParImpar(num); // Llamamos a la otra función
+            let resultado = calcularParImpar(num);
             alert("El número " + num + " es " + resultado);
         }
 
