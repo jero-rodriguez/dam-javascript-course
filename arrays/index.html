@@ -3,92 +3,63 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Arrays y bucles for</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #e9ecef;
-            padding: 20px;
-        }
-
-        .caja-ejercicio {
-            background-color: white;
-            border: 1px solid #ccc;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 20px;
-            border-radius: 8px;
-        }
-
-        h1 {
-            color: #2c3e50;
-            text-align: center;
-        }
-
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .explicacion {
-            background-color: #d4edda;
-            padding: 10px;
-            border-left: 4px solid #28a745;
-            margin-bottom: 20px;
-            font-size: 0.9em;
-        }
-
-        #resultado {
-            background-color: #f8f9fa;
-            padding: 15px;
-            margin-top: 20px;
-            border: 1px dashed #6c757d;
-        }
-    </style>
+    <title>Arrays y Bucles FOR - JavaScript</title>
 </head>
 
 <body>
 
-    <div class="caja-ejercicio">
-        <h1>Arrays y bucles for</h1>
+    <h1>Ejercicios del Video: Arrays y Bucles</h1>
 
-        <div class="explicacion">
-            <strong>Conceptos clave del vídeo:</strong><br>
-            - <b>Arrays:</b> Variables que guardan muchos datos a la vez.<br>
-            - <b>Índices:</b> Se empieza a contar desde el 0.<br>
-            - <b>Propiedad .length:</b> Nos dice cuántos elementos hay.<br>
-            - <b>Bucle For:</b> Sirve para repetir una acción automáticamente.
-        </div>
-
-        <p>Haz clic para ver los días de la semana procesados por un bucle:</p>
-        <button onclick="mostrarDias()">Mostrar Días</button>
-
-        <div id="resultado">
-            Los días aparecerán aquí...
-        </div>
-
-        <br>
-        <a href="../index.html">← Volver al Índice</a>
-    </div>
+    <button onclick="verAlineacion()">Ver Jugador por Posición</button>
+    <button onclick="calcularFactorial()">Calcular Factorial</button>
+    <button onclick="tablaMultiplicar()">Generar Tabla Multiplicar</button>
+    <button onclick="imprimeAlineacion()">Imprimir Alineación Completa</button>
 
     <script>
-        function mostrarDias() {
-            let dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
-            let textoHTML = "<strong>Lista de días:</strong><br>";
+        function verAlineacion() {
+            let alineacion = ["Courtois", "Carvajal", "Ramos", "Benzema"];
+            let posicion = prompt("Dime una posición (0 a 3):");
 
-            for (let i = 0; i < dias.length; i++) {
-                textoHTML = textoHTML + (i + 1) + ". " + dias[i] + "<br>";
+            if (alineacion[posicion] !== undefined) {
+                alert("En la posición " + posicion + " está: " + alineacion[posicion]);
+            } else {
+                alert("Esa posición no existe en el equipo.");
             }
+        }
 
-            document.getElementById("resultado").innerHTML = textoHTML;
+        function calcularFactorial() {
+            let numero = parseInt(prompt("Dime un número para calcular su factorial:"));
+            let factorial = 1;
+
+            for (let i = 1; i <= numero; i++) {
+                factorial = factorial * i;
+            }
+            alert("El factorial de " + numero + " es: " + factorial);
+        }
+
+        function tablaMultiplicar() {
+            let num = parseInt(prompt("¿De qué número quieres la tabla?"));
+
+            document.write("<h1>Tabla del " + num + "</h1>");
+            document.write("<table border='1'>");
+
+            for (let i = 1; i <= 10; i++) {
+                document.write("<tr>");
+                document.write("<td>" + num + " x " + i + "</td>");
+                document.write("<td>" + (num * i) + "</td>");
+                document.write("</tr>");
+            }
+            document.write("</table>");
+        }
+
+        function imprimeAlineacion() {
+            let alineacion = ["Courtois", "Carvajal", "Ramos", "Benzema", "Modric", "Kroos"];
+
+            document.write("<h2>Alineación Completa:</h2>");
+
+            for (let i = 0; i < alineacion.length; i++) {
+                document.write("Jugador " + i + ": " + alineacion[i] + "<br>");
+            }
         }
     </script>
 
