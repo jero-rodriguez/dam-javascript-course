@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Operadores, Funciones y Depuración</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+            padding: 20px;
+        }
+
+        .caja-ejercicio {
+            background-color: white;
+            border: 1px solid #ccc;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .explicacion {
+            background-color: #fff3cd;
+            padding: 10px;
+            border-left: 4px solid #ffc107;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="caja-ejercicio">
+        <h1>Operadores, Funciones y Depuración</h1>
+
+        <div class="explicacion">
+            <strong>Aprendido en este vídeo:</strong><br>
+            - Operador módulo (%) para restos de divisiones.<br>
+            - Uso de <b>parseInt()</b> para convertir texto a número y poder sumar.<br>
+            - Creación de <b>funciones</b> para organizar el código.<br>
+            - Depuración con <b>F12</b> (Ctrl+Mayús+I) para ver errores.
+        </div>
+
+        <h3>Pruebas de funciones:</h3>
+
+        <p>1. Comprobar si un número es múltiplo de 7:</p>
+        <button onclick="esMultiploDe7()">Ejecutar Múltiplo</button>
+
+        <p>2. Sumar dos números (usando parseInt):</p>
+        <button onclick="sumarDosNumeros()">Ejecutar Suma</button>
+
+        <p>3. ¿Es Par o Impar? (Función con parámetros):</p>
+        <button onclick="pedirNumeroParImpar()">Ejecutar Par/Impar</button>
+
+        <br><br>
+        <a href="../index.html">← Volver al Índice</a>
+    </div>
+
+    <script>
+        // --- EJEMPLO 1: Múltiplo de 7 ---
+        function esMultiploDe7() {
+            let numero = prompt("Dime un número para ver si es múltiplo de 7:");
+            if (numero % 7 == 0) {
+                alert("¡Sí! Es múltiplo de 7.");
+            } else {
+                alert("No es múltiplo de 7.");
+            }
+        }
+
+        // --- EJEMPLO 2: Suma con parseInt ---
+        function sumarDosNumeros() {
+            let n1 = prompt("Dime el primer número:");
+            let n2 = prompt("Dime el segundo número:");
+
+            let resultado = parseInt(n1) + parseInt(n2);
+
+            alert("La suma real es: " + resultado);
+        }
+
+        // --- EJEMPLO 3: Funciones con parámetros y return ---
+        function pedirNumeroParImpar() {
+            let num = prompt("Dime un número:");
+            let resultado = calcularParImpar(num); // Llamamos a la otra función
+            alert("El número " + num + " es " + resultado);
+        }
+
+        function calcularParImpar(valor) {
+            if (valor % 2 == 0) {
+                return "PAR";
+            } else {
+                return "IMPAR";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

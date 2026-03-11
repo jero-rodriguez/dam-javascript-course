@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio Nota Media</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+            padding: 20px;
+        }
+
+        .caja-ejercicio {
+            background-color: white;
+            border: 1px solid #ccc;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1em;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .explicacion {
+            background-color: #e2f3f5;
+            padding: 10px;
+            border-left: 4px solid #3d5afe;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #d9534f;
+            text-align: center;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="caja-ejercicio">
+        <h1>Ejercicio Nota Media</h1>
+
+        <div class="explicacion">
+            <strong>Lo que aprendemos en este vídeo:</strong><br>
+            - No olvidar el <b>parseInt()</b> al pedir notas.<br>
+            - Usar un <b>acumulador</b> (suma = suma + nota).<br>
+            - El bucle <b>for</b> para pedir muchas notas seguidas.<br>
+        </div>
+
+        <p>Pulsa el botón para introducir tus notas y calcular el promedio:</p>
+
+        <button onclick="calcularNotaMedia()">Calcular mi Media</button>
+
+        <div id="resultado"></div>
+
+        <br>
+        <a href="../index.html" style="text-decoration: none; color: #007bff;">← Volver al Índice</a>
+    </div>
+
+    <script>
+        function calcularNotaMedia() {
+            let numNotas = prompt("¿Cuántas notas quieres introducir?");
+            numNotas = parseInt(numNotas);
+
+            let suma = 0;
+
+            for (let i = 1; i <= numNotas; i++) {
+                let nota = prompt("Introduce la nota número " + i + ":");
+                suma = suma + parseInt(nota);
+            }
+
+            let mediaFinal = suma / numNotas;
+
+            document.getElementById("resultado").innerHTML =
+                "Tu nota media final es: " + mediaFinal.toFixed(2);
+        }
+    </script>
+
+</body>
+
+</html>

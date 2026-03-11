@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Evento onchange</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fdfdfe;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .caja-ejercicio {
+            background-color: white;
+            border: 2px solid #ccc;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 1em;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        #imgProvincia {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            visibility: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .explicacion {
+            text-align: left;
+            background-color: #f1f8ff;
+            padding: 15px;
+            border-left: 5px solid #007bff;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="caja-ejercicio">
+        <h1>Evento onchange</h1>
+        <p>Selecciona una provincia para ver su imagen:</p>
+
+        <select id="provincia" onchange="cambiaImagen()">
+            <option value="nada">-- Selecciona una provincia --</option>
+            <option value="cr">Ciudad Real</option>
+            <option value="ab">Albacete</option>
+            <option value="to">Toledo</option>
+            <option value="gu">Guadalajara</option>
+            <option value="cu">Cuenca</option>
+        </select>
+
+        <img id="imgProvincia" src="" alt="Imagen de la provincia">
+
+        <div class="explicacion">
+            <strong>Lo que aprendemos en este vídeo:</strong><br>
+            - <b>onchange</b>: Evento que se dispara al cambiar el valor de un elemento.<br>
+            - Capturar el valor seleccionado con <b>.value</b>.<br>
+            - Propiedad <b>visibility</b>: Para ocultar o mostrar elementos (hidden / visible).
+        </div>
+
+        <br>
+        <a href="../index.html" style="text-decoration: none; color: #007bff;">← Volver al Índice</a>
+    </div>
+
+    <script>
+        function cambiaImagen() {
+            let lista = document.getElementById("provincia");
+            let visor = document.getElementById("imgProvincia");
+            let seleccion = lista.value;
+
+            if (seleccion === "nada") {
+                visor.style.visibility = "hidden";
+            } else {
+                visor.style.visibility = "visible";
+                if (seleccion === "cr") {
+                    visor.src = "https://placehold.co/500x300?text=Ciudad+Real";
+                } else if (seleccion === "ab") {
+                    visor.src = "https://placehold.co/500x300?text=Albacete";
+                } else if (seleccion === "to") {
+                    visor.src = "https://placehold.co/500x300?text=Toledo";
+                } else if (seleccion === "gu") {
+                    visor.src = "https://placehold.co/500x300?text=Guadalajara";
+                } else if (seleccion === "cu") {
+                    visor.src = "https://placehold.co/500x300?text=Cuenca";
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

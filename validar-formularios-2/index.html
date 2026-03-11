@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Validación de Formularios II</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .capa-formulario {
+            background-color: #34495e;
+            color: white;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        label {
+            display: inline-block;
+            width: 30%;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 60%;
+            padding: 5px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid white;
+        }
+
+        #aviso {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-top: 15px;
+            min-height: 20px;
+        }
+
+        .boton-envio {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1em;
+        }
+
+        .boton-envio:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="capa-formulario">
+        <h1>Inscripción</h1>
+
+        <form onsubmit="return validarFormulario()">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha">
+
+            <button type="submit" class="boton-envio">Enviar Formulario</button>
+
+            <div id="aviso"></div>
+        </form>
+
+        <br>
+        <a href="../index.html" style="color: #ecf0f1; text-decoration: none;">← Volver al Índice</a>
+    </div>
+
+    <script>
+        function validarFormulario() {
+            let campoNombre = document.getElementById("nombre");
+            let campoFecha = document.getElementById("fecha");
+            let aviso = document.getElementById("aviso");
+
+            aviso.innerHTML = "";
+
+            if (campoNombre.value.length === 0) {
+                aviso.innerHTML = "El nombre no puede estar vacío.";
+                campoNombre.focus();
+                return false;
+            }
+
+            if (campoFecha.value === "") {
+                aviso.innerHTML = "Debes seleccionar una fecha.";
+                campoFecha.focus();
+                return false;
+            }
+
+            if (campoFecha.value < "2026-03-26") {
+                aviso.innerHTML = "La fecha no puede ser anterior al 26/03/2026.";
+                campoFecha.focus();
+                return false;
+            }
+
+            alert("¡Todo correcto! Enviando...");
+            return true;
+        }
+    </script>
+
+</body>
+
+</html>

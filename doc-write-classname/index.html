@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript y el DOM: write y className</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contenedor {
+            background-color: white;
+            border: 1px solid #ccc;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .importante {
+            background-color: red;
+            color: yellow;
+            font-size: 40px;
+            padding: 10px;
+            border: 5px solid black;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .explicacion {
+            text-align: left;
+            background-color: #e9ecef;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 0.9em;
+            border-left: 5px solid #6c757d;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <h1 id="miTitulo">JavaScript y el DOM: write y className</h1>
+        <p>Pulsa el botón para aplicar una clase CSS completa de golpe.</p>
+
+        <button onclick="aplicarEstilo()">Aplicar Clase .importante</button>
+
+        <div class="explicacion">
+            <strong>Lo que aprendemos en este vídeo:</strong>
+            - <b>document.write()</b>: Escribe contenido en la página. Si se usa después de cargar, borra todo lo
+            anterior.<br>
+            - <b>className</b>: Permite cambiar la clase CSS de un elemento para aplicar muchos estilos a la vez.<br>
+            - <b>Es más rápido usar className que cambiar las propiedades de style una a una.</b><br>
+        </div>
+
+        <br>
+        <a href="../index.html" style="text-decoration: none; color: #007bff;">← Volver al Índice</a>
+    </div>
+
+    <script>
+        let nombre = prompt("¿Cómo te llamas? (Prueba de document.write)");
+        if (nombre != null && nombre != "") {
+            document.write("<h3>Hola " + nombre + ", este texto se ha generado con document.write</h3>");
+        }
+
+        function aplicarEstilo() {
+            let titulo = document.getElementById("miTitulo");
+            titulo.className = "importante";
+        }
+    </script>
+
+</body>
+
+</html>
