@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Repaso JavaScript - Ejercicio Básico</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #e9ecef;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-top: 30px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .explicacion {
+            background-color: #fff;
+            border-left: 4px solid #007bff;
+            padding: 10px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Repaso de Programación JS</h1>
+
+    <h2>1. Control de acceso</h2>
+    <p>Haz clic para verificar tu edad:</p>
+    <button onclick="acceso()">Ejecutar Acceso</button>
+
+    <h2>2. Suma de números</h2>
+    <p>Suma dos valores evitando la concatenación:</p>
+    <button onclick="sumar()">Ejecutar Suma</button>
+
+    <h2>3. Validación de Login</h2>
+    <p>Prueba el usuario 'admin' y clave '1234':</p>
+    <button onclick="login()">Ejecutar Login</button>
+
+    <div class="explicacion">
+        <strong>Conceptos clave del vídeo:</strong><br>
+        - Uso de <b>prompt()</b> para entrada y <b>alert()</b> para salida.<br>
+        - <b>if / else</b> para tomar decisiones.<br>
+        - <b>Number()</b> para convertir texto a números.<br>
+        - <b>&&</b> para que se cumplan dos condiciones a la vez.
+    </div>
+
+    <p><a href="../index.html">← Volver al índice</a></p>
+
+    <script>
+        function acceso() {
+            let edad = prompt("Introduce tu edad:");
+            if (edad !== null) {
+                if (edad < 18) {
+                    alert("No puedes entrar.");
+                } else {
+                    alert("Bienvenido.");
+                }
+            }
+        }
+
+        function sumar() {
+            let n1 = prompt("Primer número:");
+            let n2 = prompt("Segundo número:");
+            if (n1 && n2) {
+                let resultado = Number(n1) + Number(n2);
+                alert("La suma es: " + resultado);
+            }
+        }
+
+        function login() {
+            let usuario = prompt("Usuario:");
+            let clave = prompt("Contraseña:");
+            if (usuario === "admin" && clave === "1234") {
+                alert("Acceso permitido");
+            } else {
+                alert("Acceso denegado");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

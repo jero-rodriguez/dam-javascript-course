@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Repaso JavaScript - Manejo del DOM</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #e9ecef;
+            color: #333;
+            padding: 20px;
+        }
+
+        .contenedor {
+            background-color: white;
+            border: 1px solid #ccc;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2 {
+            color: #2c3e50;
+        }
+
+        .importante {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: 2px solid #2c3e50;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        img {
+            display: block;
+            margin: 10px 0;
+            max-width: 200px;
+            border: 1px solid #ccc;
+        }
+
+        .explicacion {
+            background-color: #fff;
+            border-left: 4px solid #007bff;
+            padding: 10px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor">
+        <h1 id="tituloPrincipal">Título Inicial</h1>
+
+        <button onclick="cambiarTexto()">Cambiar Título</button>
+        <button onclick="cambiarEstilo()">Cambiar Color y Borde</button>
+        <button onclick="aplicarClase()">Aplicar Clase CSS</button>
+
+        <hr>
+
+        <h2>Manejo de Imágenes e Inputs</h2>
+        <img id="miImagen" src="https://placehold.co/150" alt="Imagen de prueba">
+
+        <button onclick="cambiarImagen()">Cambiar Imagen</button>
+        <button onclick="ocultarImagen()">Ocultar Imagen</button>
+
+        <br><br>
+
+        <label for="campoUsuario">Usuario:</label>
+        <input type="text" id="campoUsuario" value="usuario_inicial">
+        <button onclick="cambiarValorInput()">Cambiar a Admin</button>
+
+        <div class="explicacion">
+            <strong>Conceptos de Manejo del DOM:</strong><br>
+            - <b>document.getElementById()</b>: "Agarra" un elemento por su ID.<br>
+            - <b>innerHTML</b>: Cambia el contenido dentro de una etiqueta.<br>
+            - <b>style.propiedad</b>: Modifica el CSS (ej: .style.color).<br>
+            - <b>src</b> y <b>value</b>: Cambia atributos directos de imágenes e inputs.<br>
+            - <b>className</b>: Aplica una clase CSS completa de golpe.
+        </div>
+
+        <p><a href="../index.html">← Volver al índice</a></p>
+    </div>
+
+    <script>
+        function cambiarTexto() {
+            document.getElementById("tituloPrincipal").innerHTML = "¡Título Cambiado con JS!";
+        }
+
+        function cambiarEstilo() {
+            let titulo = document.getElementById("tituloPrincipal");
+            titulo.style.color = "#dc3545";
+            titulo.style.border = "3px dotted #2c3e50";
+            titulo.style.fontSize = "40px";
+        }
+
+        function cambiarImagen() {
+            document.getElementById("miImagen").src = "https://placehold.co/200x200/000000/FFFFFF.png";
+        }
+
+        function ocultarImagen() {
+            document.getElementById("miImagen").style.display = "none";
+        }
+
+        function cambiarValorInput() {
+            document.getElementById("campoUsuario").value = "admin";
+        }
+
+        function aplicarClase() {
+            document.getElementById("tituloPrincipal").className = "importante";
+        }
+    </script>
+
+</body>
+
+</html>

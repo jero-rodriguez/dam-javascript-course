@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Repaso JavaScript - Validación Final</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #e9ecef;
+            padding: 20px;
+            color: #333;
+        }
+
+        .contenedor {
+            background-color: white;
+            border: 1px solid #ccc;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+        }
+
+        div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .explicacion {
+            background-color: #fff;
+            border-left: 4px solid #007bff;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <h1>Registro de Usuario</h1>
+
+        <form id="miFormulario" onsubmit="return validarTodo()">
+
+            <div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre">
+            </div>
+
+            <div>
+                <label for="clave">Contraseña (mín. 6 caracteres):</label>
+                <input type="password" id="clave">
+            </div>
+
+            <div>
+                <label for="edad">Edad (mín. 18):</label>
+                <input type="text" id="edad">
+            </div>
+
+            <div>
+                <label for="provincia">Provincia:</label>
+                <select id="provincia">
+                    <option value="ninguna">-- Selecciona una --</option>
+                    <option value="madrid">Madrid</option>
+                    <option value="barcelona">Barcelona</option>
+                    <option value="valencia">Valencia</option>
+                </select>
+            </div>
+
+            <div>
+                <input type="checkbox" id="acepto">
+                <label style="display:inline" for="acepto">Acepto los términos</label>
+            </div>
+
+            <button type="submit">Enviar Formulario</button>
+        </form>
+
+        <div class="explicacion">
+            <strong>Puntos clave de la validación:</strong><br>
+            - <b>onsubmit="return funcion()"</b>: Si la función devuelve `false`, el formulario NO se envía.<br>
+            - <b>.value.length</b>: Se usa para contar caracteres (útil para contraseñas).<br>
+            - <b>.focus()</b>: Coloca el cursor automáticamente en el campo que tiene el error.<br>
+            - <b>Validación de Select</b>: Comprobamos si el valor sigue siendo el inicial ("ninguna").
+        </div>
+
+        <p><a href="../index.html">← Volver al índice</a></p>
+    </div>
+
+    <script>
+        function validarTodo() {
+            let nombre = document.getElementById("nombre");
+            let clave = document.getElementById("clave");
+            let edad = document.getElementById("edad");
+            let provincia = document.getElementById("provincia");
+            let acepto = document.getElementById("acepto");
+
+            if (nombre.value === "") {
+                alert("El nombre no puede estar vacío.");
+                nombre.focus();
+                return false;
+            }
+
+            if (clave.value.length < 6) {
+                alert("La contraseña debe tener al menos 6 caracteres.");
+                clave.focus();
+                return false;
+            }
+
+            if (isNaN(edad.value) || edad.value < 18) {
+                alert("Debes ser mayor de 18 años (introduce un número válido).");
+                edad.focus();
+                return false;
+            }
+
+            if (provincia.value === "ninguna") {
+                alert("Por favor, elige una provincia.");
+                provincia.focus();
+                return false;
+            }
+
+            if (!acepto.checked) {
+                alert("Debes aceptar los términos y condiciones.");
+                return false;
+            }
+
+            alert("¡Formulario correcto! Enviando datos...");
+            return true;
+        }
+    </script>
+
+</body>
+
+</html>
